@@ -63,7 +63,7 @@
    コンテナを停止するには、ターミナルで `Ctrl+C` を押すか、別のターミナルから以下のコマンドを実行します。
 
    ```bash
-   docker-compose down
+   docker compose down
    ```
 
 ## ファイル構成
