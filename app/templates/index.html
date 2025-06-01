@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>課金ページ</title>
+  </head>
+  <body>
+    <h1>商品購入</h1>
+    <button id="checkout-button">500円で購入</button>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+      const stripe = Stripe("{{ public_key }}");
+
+      document
+        .getElementById("checkout-button")
+        .addEventListener("click", () => {
+          fetch("/create-checkout-session", { method: "POST" })
+            .then((res) => res.json())
+            .then((data) => stripe.redirectToCheckout({ sessionId: data.id }));
+        });
+    </script>
+  </body>
+</html>
